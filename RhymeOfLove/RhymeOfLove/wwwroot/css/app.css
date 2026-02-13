@@ -1,0 +1,154 @@
+:root {
+	--bg-color: #2b0a0d;
+	--card-bg: rgba(74, 4, 4, 0.65);
+	--text-color: #ffe4e1;
+	--accent-color: #db7093;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Playfair Display', serif;
+	background: linear-gradient(135deg, #2b0a0d 0%, #5e0918 50%, #1a0507 100%);
+	color: var(--text-color);
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+.main-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	padding: 20px;
+	position: relative;
+	z-index: 10;
+}
+
+.valentine-card {
+	background: var(--card-bg);
+	backdrop-filter: blur(10px);
+	border: 2px solid rgba(219, 112, 147, 0.3);
+	border-radius: 20px;
+	padding: 2rem;
+	max-width: 600px;
+	width: 100%;
+	text-align: center;
+	box-shadow: 0 0 30px rgba(219, 112, 147, 0.2);
+	animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+
+	50% {
+		transform: translateY(-10px);
+	}
+
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.moment-image {
+	width: 100%;
+	max-height: 300px;
+	object-fit: cover;
+	border-radius: 15px;
+	margin-bottom: 1.5rem;
+	border: 3px solid var(--accent-color);
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.stanza-text {
+	font-size: 1.3rem;
+	line-height: 1.8;
+	margin-bottom: 2rem;
+	text-shadow: 1px 1px 2px black;
+	white-space: pre-line;
+}
+
+.next-btn {
+	background: linear-gradient(45deg, #db7093, #b03060);
+	border: none;
+	padding: 12px 30px;
+	color: white;
+	font-size: 1.2rem;
+	font-family: 'Playfair Display', serif;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: transform 0.2s, box-shadow 0.2s;
+	box-shadow: 0 4px 15px rgba(219, 112, 147, 0.4);
+}
+
+	.next-btn:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 20px rgba(219, 112, 147, 0.6);
+	}
+
+.hearts-bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 1;
+	pointer-events: none;
+}
+
+.heart {
+	position: absolute;
+	bottom: -10vh;
+	background-color: rgba(219, 112, 147, 0.4);
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	transform: rotate(-45deg);
+	animation: fly 10s linear infinite;
+}
+
+	.heart:before, .heart:after {
+		content: "";
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: inherit;
+	}
+
+	.heart:before {
+		top: -15px;
+		left: 0;
+	}
+
+	.heart:after {
+		left: 15px;
+		top: 0;
+	}
+
+@keyframes fly {
+	0% {
+		bottom: -10vh;
+		opacity: 1;
+	}
+
+	100% {
+		bottom: 110vh;
+		opacity: 0;
+		transform: rotate(-45deg) translateX(100px);
+	}
+}
+
+.fade-in {
+	animation: fadeIn 1s ease-out forwards;
+	opacity: 0;
+}
+
+@keyframes fadeIn {
+	to {
+		opacity: 1;
+	}
+}
