@@ -1,108 +1,21 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
 
-<div class="hearts-bg">
-    @for (int i = 0; i < 20; i++)
-    {
-        <div class="heart" style="left: @(GetRandomValue())%; animation-duration: @(GetRandomDuration())s; animation-delay: @(GetRandomDelay())s;"></div>
-    }
-</div>
+<div class="hub-container fade-in">
+    <h1 class="hub-title">Nasza Księga Wspomnień</h1>
+    <p class="hub-subtitle">Wybierz rozdział, który chcesz dzisiaj przeżyć na nowo, Weruśka ❤️</p>
 
-<div class="main-container">
-    @if (!showFinal)
-    {
-        <div class="valentine-card fade-in" @key="currentIndex">
-            <img src="@currentStanza.ImageSrc" class="moment-image" alt="Nasze wspomnienie" />
+    <div class="cards-grid">
+        <button class="memory-card" @onclick='() => Navigation.NavigateTo("valentines-2026")'>
+            <div class="card-icon">💌</div>
+            <h2>Walentynki 2026</h2>
+            <p>Nasz plan</p>
+        </button>
 
-            <div class="stanza-text">
-                @((MarkupString)currentStanza.Text)
-            </div>
-
-            <button class="next-btn" @onclick="NextStanza">
-                @(currentIndex == stanzas.Count - 1 ? "Moje podsumowanie... ❤️" : "Dalej, Weruśka...")
-            </button>
+        <div class="memory-card locked-card">
+            <div class="card-icon">🔒</div>
+            <h2>Kolejny Rozdział</h2>
+            <p>Zapisze się wkrótce...</p>
         </div>
-    }
-    else
-    {
-        <div class="valentine-card fade-in">
-            <h1 style="font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 10px;">Kocham Cię, Mendo!</h1>
-            <img src="images/8.gif" class="moment-image" alt="Finał" /> <p class="stanza-text">
-                Jesteś moją najlepszą przyjaciółką, moją miłością i moją przyszłością.<br />
-                Szczęśliwych Walentynek!
-            </p>
-            <button class="next-btn" @onclick="Reset">Czytaj od nowa 🌹</button>
-        </div>
-    }
+    </div>
 </div>
-
-@code {
-    private int currentIndex = 0;
-    private bool showFinal = false;
-
-    private class Stanza
-    {
-        public string Text { get; set; }
-        public string ImageSrc { get; set; }
-    }
-
-    private List<Stanza> stanzas = new List<Stanza>
-    {
-        new Stanza {
-            ImageSrc = "images/call_center.jpg",
-            Text = "<b>Róże są czerwone, piwonie różowe,</b><br/>Wszystko się zaczęło przez Eneę, to daje mi głowę!<br/>Paulina nas spięła, choć mąciła nieco,<br/>Że niby 'samotna' – a tu iskry lecą!<br/>Dodałem na Insta, czekałem na znaki,<br/>Lecz Ty napisałaś pierwsza – ot, przypadek taki.<br/>Bo jestem w Twym typie, bo serce drgnęło,<br/>I tak się to nasze 'pisanie' zaczęło."
-        },
-        new Stanza {
-            ImageSrc = "images/diva_cat.jpg",
-            Text = "<b>Róże są czerwone, Tyś moją Divą w czerni,</b><br/>Gdy nosisz okulary, pożądam Cię bezmiernie.<br/>'Pani milf od polskiego' – mruczę z zachwytu,<br/>Bo Twój styl i wdzięk nie mają limitu.<br/>Brunetka, kręcone włosy, oczy jak kawa gorąca,<br/>Mógłbym w nich tonąć bez końca, do słońca.<br/>Jesteś moją Mendą, rozgadaną i czułą,<br/>Co moją ciszę przebija miłosną pigułą."
-        },
-        new Stanza {
-            ImageSrc = "images/cinema.jpg",
-            Text = "<b>Róże są czerwone, ja w bieli, Ty w czerni,</b><br/>W kinie na randce byliśmy sobie niezmierni.<br/>Złomem Pauliny wiozłaś mnie do parku,<br/>A ja prawie zemdlałem – od emocji, nie z barku!<br/>Gdy leżałem w Twych udach, wszystko się zatrzymało,<br/>lecz choć było bosko, to pytań było niemało,<br/>bo to „tylko kręcenie” w euforii mnie powstrzymało.<br/>Dopiero Twój buziak w czoło dał mi moc i siłę,<br/>By o „nas” zapytać w tę magiczną chwilę."
-        },
-        new Stanza {
-            ImageSrc = "images/cavtat.gif",
-            Text = "<b>Róże są czerwone, Dubrownik jest złoty,</b><br/>'Ciumkaj loczki', Naruciak i słońce Cavtat,<br/>To był nasz pierwszy, wspólny, wielki świat.<br/>Czytaliśmy książki oparci o skały,<br/>A wieczory w pokoju naszą bliskość znały.<br/>Nagraliśmy filmik – dla dzieci, po ślubie,<br/>By pokazać im kiedyś, kogo tak bardzo lubię.<br/>Tacy beztroscy, słodcy, młodzi i nasi,<br/>Ta myśl o przyszłości wszystkie lęki gasi.<br/>Chcę to ziścić, Weruśka, to marzenie moje,<br/>Byśmy ten film oglądali już zawsze we dwoje."
-        },
-        new Stanza {
-            ImageSrc = "images/miss_you.gif",
-            Text = "<b>Róże są czerwone, choć droga bywa kręta,</b><br/>O naszych trudnych rozmowach moje serce pamięta.<br/>Bałem się bliskości, chowałem za wiarę,<br/>Lecz Ty uleczyłaś moje lęki stare.<br/>Dziś kocham Twe ciało, Twój dotyk, Twój zapach,<br/>Mimo że nadal uczę się dochodzić w tych etapach,<br/>Obiecuję Ci walkę, rodzinę i dzieci,<br/>Bo z Tobą mój czas najpiękniej na świecie leci.<br/>Zmieniłaś mnie w gościa, co w lustro spogląda śmiało,<br/>Przy Tobie depresji wspomnienie wyparowało."
-        },
-        new Stanza {
-            ImageSrc = "images/new_years_eve.jpg",
-            Text = "<b>Róże są czerwone, Sylwester u Pauliny,</b><br/>Fajerwerki na niebie i Twoje radosne miny.<br/>Pocałunek ten pierwszy, koncert w Głogowie,<br/>Sierpniowe piosenki wciąż grają mi w głowie.<br/>Nawet gdy overthinking Cię dopada nocą,<br/>I stresy jak zmory nad Tobą migocą,<br/>Pamiętaj, że kocham każdą Twoją wadę,<br/>Z Twoją 'atencją' zawsze dam sobie radę."
-        },
-        new Stanza {
-            ImageSrc = "images/frascati.jpg",
-            Text = "<b>Róże są czerwone, a Taco nam śpiewa,</b><br/>Że 'oczy przechodniów nocą świecą jak znicze',<br/>Lecz ja w Twoich oczach moją przyszłość liczę.<br/>Alicante nas wzywa, Hiszpanii gorąco,<br/>Będziemy tam tworzyć wspomnienia płonące.<br/>A Pan Bóg, co złączył nas w życia przełomie,<br/>Niech prowadzi nas razem w niebieskim ogromie."
-        },
-        new Stanza {
-            ImageSrc = "images/heaven.jpg",
-            Text = "<b>Róże są czerwone, a Tyś mą nadzieją,</b><br/>Niech wszystkie anioły się do nas śmieją.<br/>Chcę Cię doprowadzić prosto przed drzwi Nieba,<br/>Bo nic mi prócz Ciebie, Weruśka, nie trzeba.<br/>Moja najdroższa Mendo, ma perło jedyna,<br/>Z Tobą się wieczność dla mnie zaczyna."
-        }
-    };
-
-    private Stanza currentStanza => stanzas[currentIndex];
-
-    private void NextStanza()
-    {
-        if (currentIndex < stanzas.Count - 1)
-        {
-            currentIndex++;
-        }
-        else
-        {
-            showFinal = true;
-        }
-    }
-
-    private void Reset()
-    {
-        currentIndex = 0;
-        showFinal = false;
-    }
-
-    private Random rng = new Random();
-    private int GetRandomValue() => rng.Next(0, 100);
-    private int GetRandomDuration() => rng.Next(6, 15);
-    private int GetRandomDelay() => rng.Next(0, 5);
-}
