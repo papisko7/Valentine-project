@@ -4,29 +4,31 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Dla Weruśki ❤️</title>
+	<title>Dla Weruśki❤️</title>
 	<base href="/" />
 	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
-	<link rel="icon" type="image/png" href="favicon.png" />
+	<link rel="icon" type="image/png" href="icons/love_letter.png" />
 	<link href="RhymeOfLove.styles.css" rel="stylesheet" />
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div id="app">
-		<svg class="loading-progress">
-			<circle r="40%" cx="50%" cy="50%" />
-			<circle r="40%" cx="50%" cy="50%" />
-		</svg>
-		<div class="loading-progress-text"></div>
+		<div class="heart-loader-container">
+			<div class="beating-heart"></div>
+			<p style="color: #ffe4e1; font-family: 'Playfair Display', serif; margin-top: 20px; font-size: 1.2rem;">
+				Ładuję naszą historię...❤️
+			</p>
+		</div>
 	</div>
 
-	<div id="blazor-error-ui">
+	<div id="blazor-error-ui" style="display: none !important;">
 		An unhandled error has occurred.
 		<a href="" class="reload">Reload</a>
 		<a class="dismiss">🗙</a>
 	</div>
+
 	<script src="_framework/blazor.webassembly.js"></script>
 </body>
 
