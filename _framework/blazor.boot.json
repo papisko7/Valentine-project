@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "RhymeOfLove",
   "resources": {
-    "hash": "sha256-cTCuzC7DiJrmP+qBz3VJCIb79ZCwYtScrT3MfCXknuE=",
+    "hash": "sha256-EfibBgABgiMMn37lUSYcm8WRVEcx91E10H8SNUKg9cg=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-NljIbpK/1KCj0+knpX8U77Rbl5kTtfFIuFjK7AuczEw="
     },
@@ -47,7 +47,7 @@
       "System.Text.Json.wasm": "sha256-1KgIAMAl2smt63FtxqMONS0r7ox8LJZ7eD4HpHMyFeQ=",
       "System.Text.RegularExpressions.wasm": "sha256-nE7XCiyeCswUnRGdXOQvcHP+XMWXcToACrazpZlocBI=",
       "System.Private.CoreLib.wasm": "sha256-//9eBZsOEUg5Mfjyhm7UlBvc8gGciBgvODHMzYsivJo=",
-      "RhymeOfLove.wasm": "sha256-niRB7yCg8RI404TLObns4wDnhZaEvFZ/KBnMS1mMWTk="
+      "RhymeOfLove.wasm": "sha256-Jd1xbvIgimWR5FkCSlYZcbvR+8ZIJA1jHWjqR/eoTcA="
     }
   },
   "cacheBootResources": true,
